@@ -11,8 +11,12 @@ class CountButton extends HTMLElement{
         this.render()
     }
 
-    private render(){
-        console.log("test")
+    private render() {
+        let button = document.querySelector("template > button#count-button");
+        // noch nicht getestet:
+        button.addEventListener("click", () => {
+            console.log("clicked")
+        })
     }
 }
 
