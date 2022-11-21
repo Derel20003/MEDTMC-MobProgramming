@@ -6,6 +6,14 @@ class CountButton extends HTMLElement{
             mode: 'open'
         })
     }
+
+    async connectedCallback(){
+        this.render()
+    }
+
+    private render(){
+        console.log("test")
+    }
 }
 
 customElements.define('count-button', CountButton)
