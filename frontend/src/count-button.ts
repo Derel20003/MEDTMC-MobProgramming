@@ -1,6 +1,7 @@
 import produce from "immer";
 import { html, render } from "lit-html"
 import { state } from "./model";
+import increaseCounter from "./counter-service";
 
 const template = html`
         <button id="count-button">Add</button>
@@ -22,11 +23,7 @@ class CountButton extends HTMLElement{
     private render() {
         render(template, this.shadowRoot)
         var button = this.shadowRoot.querySelector('button')
-        button.addEventListener("click", () => {
-            state.next(produce(state.getValue(), draft => {
-                draft.counter += 1; 
-            }))
-        })
+        button.addEventListener("click", increaseCounter)
     }
 }
 customElements.define('count-button', CountButton)
